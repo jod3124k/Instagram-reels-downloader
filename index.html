@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Free Instagram Reels Downloader - Download HD Instagram Reels without watermark. No registration required.">
+    <title>InstaReel Downloader | Free Instagram Reels Saver</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" type="image/x-icon" href="https://img.icons8.com/color/96/000000/instagram-reel.png">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header>
+            <div class="logo">
+                <h1>📥 InstaReel Downloader</h1>
+                <p class="tagline">Download Instagram Reels in HD • Free • No Watermark</p>
+            </div>
+            <nav class="main-nav">
+                <a href="#how-to-use">How to Use</a>
+                <a href="#features">Features</a>
+                <a href="#faq">FAQ</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h2>Download Instagram Reels in <span class="highlight">One Click</span></h2>
+                <p class="hero-subtitle">Paste your Reel link below. Get HD video instantly. No sign-up, no limits!</p>
+                
+                <!-- Download Tool -->
+                <div class="tool-container">
+                    <div class="input-group">
+                        <input type="text" id="reelUrl" placeholder="Paste Instagram Reel URL here... Example: https://www.instagram.com/reel/Cxample123/" autocomplete="off">
+                        <button id="downloadBtn" onclick="processReel()">
+                            <span class="btn-text">Download Reel</span>
+                            <span class="btn-loading" style="display: none;">⏳ Processing...</span>
+                        </button>
+                    </div>
+                    <div class="examples">
+                        <p><small>💡 <strong>How to get URL:</strong> Open Instagram → Tap share icon on Reel → Copy link</small></p>
+                    </div>
+                    
+                    <!-- Result Area -->
+                    <div id="resultContainer" class="result-container" style="display: none;">
+                        <div class="result-header">
+                            <h3>✅ Your Reel is Ready!</h3>
+                            <p class="result-subtitle">Click below to download</p>
+                        </div>
+                        <div class="download-options">
+                            <div class="download-card">
+                                <h4>📹 HD Quality</h4>
+                                <p>Best available resolution</p>
+                                <a id="downloadLink" class="download-btn" href="#" target="_blank" download>
+                                    ⬇️ Download HD Reel
+                                </a>
+                                <p class="file-info"><small>MP4 Format • 60 FPS</small></p>
+                            </div>
+                        </div>
+                        <div class="action-buttons">
+                            <button class="secondary-btn" onclick="resetTool()">Download Another</button>
+                            <button class="share-btn" onclick="shareTool()">Share This Tool</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Loading Spinner -->
+                    <div id="loadingSpinner" class="loading-spinner" style="display: none;">
+                        <div class="spinner"></div>
+                        <p>Fetching Reel from Instagram...</p>
+                        <p class="loading-note">This may take 10-15 seconds</p>
+                    </div>
+                    
+                    <!-- Error Message -->
+                    <div id="errorContainer" class="error-container" style="display: none;">
+                        <div class="error-icon">⚠️</div>
+                        <h4 id="errorTitle">Invalid URL</h4>
+                        <p id="errorMessage">Please check the URL and try again.</p>
+                        <button class="error-btn" onclick="resetTool()">Try Again</button>
+                    </div>
+                </div>
+                
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="stat-number">10K+</span>
+                        <span class="stat-label">Reels Downloaded</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">Free</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">HD</span>
+                        <span class="stat-label">Quality</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features">
+            <h2>Why Choose Our Tool?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🚀</div>
+                    <h3>Super Fast</h3>
+                    <p>Download in seconds with our optimized servers.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💯</div>
+                    <h3>100% Free</h3>
+                    <p>No charges, no registration, no hidden fees.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🖥️</div>
+                    <h3>No Watermark</h3>
+                    <p>Clean videos without Instagram branding.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>Mobile Friendly</h3>
+                    <p>Works perfectly on all devices.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3>Safe & Private</h3>
+                    <p>We don't store your downloads or data.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3>Always Online</h3>
+                    <p>99.9% uptime guarantee.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- How-to Section -->
+        <section id="how-to-use" class="how-to">
+            <h2>How to Download Instagram Reels</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Copy Reel Link</h3>
+                    <p>Open Instagram app, find the Reel, tap "Share" icon, and select "Copy link".</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Paste URL</h3>
+                    <p>Paste the copied link into the input box above.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Download</h3>
+                    <p>Click "Download Reel" and save your video in HD quality.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="faq">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3>Is this tool free?</h3>
+                    <p>Yes! Our Instagram Reels downloader is completely free with no hidden charges.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Do I need to install anything?</h3>
+                    <p>No installation needed. It works directly in your browser on any device.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>Is downloading Reels legal?</h3>
+                    <p>Downloading content for personal use is generally acceptable. Please respect copyright and don't repost without permission.</p>
+                </div>
+                <div class="faq-item">
+                    <h3>What quality are the downloads?</h3>
+                    <p>We provide the highest available quality, typically 720p or 1080p HD.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>InstaReel Downloader</h3>
+                    <p>The fastest, free Instagram Reels downloader online.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Legal</h3>
+                    <p><a href="#disclaimer">Disclaimer</a></p>
+                    <p><a href="#privacy">Privacy Policy</a></p>
+                    <p><a href="#terms">Terms of Service</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>For support or DMCA: contact@example.com</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 InstaReel Downloader. This tool is not affiliated with Instagram or Meta.</p>
+                <p class="github-link">Hosted on <a href="https://github.com/jod3124k/instagram-reels-downloader" target="_blank">GitHub Pages</a></p>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Ad Placeholder (for future) -->
+    <div class="ad-container">
+        <div class="ad-slot">
+            <!-- Ad space for Google AdSense or similar -->
+            <p class="ad-label">Advertisement</p>
+            <div class="ad-placeholder">
+                <p>Ad Space (728x90)</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
